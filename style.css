@@ -1,0 +1,156 @@
+
+
+*:after,*,*:before{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root{
+
+}
+
+*::selection{
+color: red;
+background: tan;
+}
+
+html{
+font-size: 10px;
+}
+
+a{
+text-decoration: none;
+}
+
+ul{
+list-style-type: none;
+}
+
+body{
+background: #f0f0f0;
+}
+
+
+
+
+.wrapper{
+margin: 1rem auto;
+padding: 1rem;
+width: min(38rem, 100% - 2rem);
+border-radius: 1rem;
+box-shadow: 0px 2px 20px 2px black;
+}
+
+.appContainer{
+height: max(70rem, 100% - 4rem);
+background: gray;
+}
+
+.titleContainer{
+background: #424242;
+text-align: center;
+border-radius: 2rem;
+}
+
+.appTitle{
+margin: 0.6rem 0.4rem;
+padding: 0.4rem 0.4rem;
+color: #f0f0f0;
+background: gray;
+font-size: 3.4rem;
+font-weight: 800;
+font-family: Tahoma;
+text-transform: capitalize;
+border-radius: 1.2rem;
+}
+
+
+
+.inputContainer{
+background: gray;
+color: white;
+}
+
+
+.inputLabel{
+margin:1rem 1.4rem;
+padding: 2rem 0.2rem;
+font-size: 1.8rem;
+background: #5977D6;
+color: #000029;
+text-align: center;
+border-radius: 1rem;
+}
+
+.genMaxNum{
+margin: .6rem 0.4rem;
+padding: 0.4rem 2rem;
+border-radius:1rem;
+background: #181D4D;
+color: #00B6FF;
+border: 2px solid red;
+}
+.genMaxNum:focus{
+border: 2px solid blue;
+outline: none;
+}
+
+.numberContainer{
+aspect-ratio: 1;
+overflow: hidden auto;
+background: #424242;
+text-align: center;
+}
+
+.numberContainer .huntNumber{
+margin:0.4rem;
+padding: 0.4rem;
+border: 2px solid ;
+display: flex;
+justify-content: center;
+justify-content: space-around;
+align-items: center;
+
+border-radius: 0.6rem;
+font-size: 2rem;
+color: white;
+cursor: text;
+}
+
+.number{
+color: #f0f0f0;
+font-size: 3.2rem;
+/* margin-top: 1rem; */
+}
+
+
+
+.add_whatsapp_Btn{
+color: #00FF32;
+} 
+
+.add_telegram_Btn{
+color: #00B3FF;
+}
+
+
+.btnContainer{
+
+background: #424242;
+text-align: center;
+}
+
+.btnContainer .btn{
+margin: 0.4rem;
+padding: 0.6rem 1.4rem;
+background: red;
+color: blue;
+font-size: 2rem;
+font-weight: 600;
+border: 0.2rem solid ;
+border-radius: 2rem;
+}
+
+
+
