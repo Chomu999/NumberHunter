@@ -157,9 +157,10 @@ border: var(--neon-border);
 }
 
 .numberContainer .huntNumber{
-margin:0.8rem;
+margin:0.8rem auto;
 padding: 0.4rem;
 border: 2px solid ;
+width: min(24rem, 100% - 4rem);
 display: flex;
 justify-content: center;
 justify-content: space-around;
@@ -174,9 +175,6 @@ cursor: text;
 }
 
 
-.huntNumber:hover{
-animation: aa 0.6s ease .1s alternate;
-}
 
 
 .number{
@@ -231,36 +229,50 @@ font-weight: 600;
 
 
 .aniB:hover{
-animation: aniB 0.3s ease 1 alternate;
+animation: hoverAni 0.33s ease 0s 1;
 }
 
 
-@keyframes aniB{
+@keyframes hoverAni{
 
-0%, 100%{
-
-transform: translateY( 0);
+25%{
+transform:  rotate(-6deg);
 }
 
-50%{
-transform: scale(0.8, 2.0) translateY( 200%);
+75%{
+transform:  rotate(6deg);
 }
 
+
+}
+
+
+
+
+  .huntNumber > span{
+color: red!important;
 }
 
 
 .aniA{
-animation: aa2 1s ease alternate;
+animation: number-in 0.25s linear;
 }
 
 
-@keyframes aa2{
+@keyframes number-in{
 
 0%{
 opacity: 0.0;
-filter: blur(40rem);
- transform: scale(3.0);
+filter: blur(8rem);
+ transform: scale(5.0);
 }
+
+25%{
+opacity: .5;
+filter:blur(4rem);
+transform: scale(2.5);
+}
+
 
 100%{
 opacity: 1.0;
@@ -269,4 +281,28 @@ filter:blur(0);
 }
 
 }
+
+
+
+.number-out{
+animation: number-out 0.3s linear;
+}
+
+@keyframes number-out{
+
+100%{
+opacity: 0.0;
+filter: blur(4rem);
+ transform: scale(5.0);
+}
+
+
+0%{
+opacity: 1.0;
+filter:blur(0);
+ transform: scale(1.0);
+}
+
+}
+
 

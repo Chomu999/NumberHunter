@@ -1,7 +1,3 @@
-
-
-
-
 "use strict";
 
 //some utils
@@ -29,12 +25,12 @@ return outColor;
 
 
 static RandomPhoneNumber(){
-let out=[];
-for(let i=0;i<10;i++){
-out.push(Rand.Int(0, 9) );
+let firstNum = document.querySelector(".firstNum").value??"9";
+
+let out=firstNum;
+for(let i=0;i<9;i++){
+out+=(Rand.Int(0, 9) );
 }
-out[0]=(out[0]===0)?9:out[0];
-out=out.join().split(",").join("");
 return out;
 }
 
@@ -107,13 +103,24 @@ const genMaxNum=document.querySelector('.genMaxNum');
 // generate random phone number and appending at parent container
 const generateNumber= async()=>{
 
-numberContainer.innerHTML="";
+
+
+for(let i=numberContainer.childElementCount; i>0;i--){
+
+const prevSpan = numberContainer.querySelector(`span.huntNumber:last-child`);
+prevSpan.classList.add("number-out")
+await sleep(0.3);
+prevSpan.remove();
+}
+
+
+
 let maxNumber=parseInt(genMaxNum.value)||1;
 
 for(let i=0;i<maxNumber;i++){
 const chlid = getRandomNumberElementChild();
 numberContainer.append(chlid);
-await sleep(1);
+await sleep(0.25);
 chlid.classList.remove("aniA");
 }
 
@@ -122,7 +129,7 @@ chlid.classList.remove("aniA");
 generateNumber();
 
 
-
+//console.log([numberContainer])
 
 
 
@@ -137,6 +144,9 @@ const condition = element.classList[0];
 
 if(condition === "huntNumber"){
 element.classList.toggle("aniB");
+element.onanimationend = () =>{
+element.classList.toggle("aniB");
+}
 return false;
 }
 
@@ -144,6 +154,9 @@ return false;
 else if(condition === "add_whatsapp_Btn"){
 const textNumber = element.nextElementSibling.innerText;
 element.parentElement.classList.toggle("aniB");
+element.parentElement.onanimationend = () =>{
+element.parentElement.classList.toggle("aniB");
+}
 saveNumber(textNumber);
 redirectNumber(textNumber, true);
 }
@@ -151,12 +164,18 @@ redirectNumber(textNumber, true);
 else if (condition === "number"){
 const textNumber = element.innerText;
 element.parentElement.classList.toggle("aniB");
+element.parentElement.onanimationend = () =>{
+element.parentElement.classList.toggle("aniB");
+}
 saveNumber(textNumber);
 }
 
 else if(condition === "add_telegram_Btn"){
 const textNumber = element.previousElementSibling.innerText;
 element.parentElement.classList.toggle("aniB");
+element.parentElement.onanimationend = () =>{
+element.parentElement.classList.toggle("aniB");
+}
 saveNumber(textNumber);
 redirectNumber(textNumber, false);
 }

@@ -35,7 +35,7 @@ referrerpolicy="no-referrer" />
 
 
 <link rel="apple-touch-icon" href="./nh.png" />
-<link rel="alternate" href="./nh,png" title="RSS" type="application/atom+xml" />
+<link rel="alternate" href="./nh.png" title="RSS" type="application/atom+xml" />
 <link rel="apple-touch-icon" href="./nh.png" />
 <link rel="shortcut icon" href="./nh.png" type="image/x-icon" />
 
@@ -61,14 +61,15 @@ referrerpolicy="no-referrer" />
 
 
 
-<p title="max number to generate random phone number" class="inputLabel">
-maximum number : 
-<input type="number" pattern="a[0-1]" class="genMaxNum" value="4" />
+<p>
+starting number:
+<input maxlength="0" min=6 max="9" type="number" class="firstNum" value="6">
 </p>
 
-
-<div class="wrapper numberContainer"></div>
-
+<p title="max number to generate random phone number" class="inputLabel">
+maximum number :
+<input type="number" pattern="a[0-1]" class="genMaxNum" value="4" />
+</p>
 
 
 <div class="wrapper btnContainer">
@@ -76,6 +77,12 @@ maximum number :
 <button class="btn genNumBtn">Generate Numuber</button>
 
 </div>
+
+
+<div class="wrapper numberContainer"></div>
+
+
+
 
 </main>
 
