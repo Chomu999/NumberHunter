@@ -4,34 +4,33 @@
 class Rand{
 
 static Float(min=0, max=1){
-return Math.random() * (max - min+1) + min;
+	return Math.random() * (max - min+1) + min;
 }
 
 static Int(min=6, max=9){
-return Math.floor( Rand.Float(min, max));
+	return Math.floor( Rand.Float(min, max));
 }
 
 static Choice(...args){
-return args[Rand.Int(0, args.length - 1)];
+	return args[Rand.Int(0, args.length - 1)];
 }
 
 static Color(len=3){
-let outColor="#";
-for(let i=0;i<len;++i){
-outColor+=Rand.Choice(..."0123456789abcdef".split(""));
-}
-return outColor;
+	let outColor="#";
+	for(let i=0;i<len;++i){
+		outColor+=Rand.Choice(..."0123456789abcdef".split(""));
+	}
+	return outColor;
 }
 
 
 static RandomPhoneNumber(){
-let firstNum = document.querySelector(".firstNum").value??"9";
-
-let out=firstNum;
-for(let i=0;i<9;i++){
-out+=(Rand.Int(0, 9) );
-}
-return out;
+	let startNum = document.querySelector(".startNum").value || "9";
+	let out="";
+	for(let i=0;i < 10 - startNum.length;i++){
+		out+=(Rand.Int(0, 9) );
+	}
+	return startNum+out;
 }
 
 }
@@ -41,11 +40,11 @@ return out;
 
 const getRandomNumberElementChild=()=>{
 
-const randomNumber = Rand.RandomPhoneNumber();
-const _S= document.createElement("span");
+	const randomNumber = Rand.RandomPhoneNumber();
+	const _S= document.createElement("span");
 
 
-_S.innerHTML = `
+	_S.innerHTML = `
 	<i class="add_whatsapp_Btn fa fa-solid fa-1x fa-whatsapp"></i>
 	
 	<span class="number wa">${randomNumber}</span>
@@ -53,10 +52,10 @@ _S.innerHTML = `
 	<i class="add_telegram_Btn fa fa-solid fa-1x fa-telegram"></i>
 `;
 
-_S.classList.add("huntNumber");
-_S.classList.add("aniA");
+	_S.classList.add("huntNumber");
+	_S.classList.add("aniA");
 
-return _S;
+	return _S;
 }
 
 
@@ -71,16 +70,18 @@ const sleep=async (t=1) => new Promise( res => setTimeout( () => res(true), t*10
 
 //saving number from clipboard
 const saveNumber = (number)=>{
-let save = `+91${number}`;
-navigator.clipboard.writeText(save);
+	let ccNum = document.querySelector(".ccNum").value || "91";
+	let save = `+${ccNum}${number}`;
+	navigator.clipboard.writeText(save);
 }
 
 
 // number redirect to browser to wa
 const redirectNumber = (number, type=true)=>{
-let platform = (type===true)?"wa.me":"t.me";
-let redirect = `https://${platform}/91${number}`;
-window.location.assign(redirect);
+	let ccNum = document.querySelector(".ccNum").value || "91";
+	let platform = (type===true)?"wa.me":"t.me";
+	let redirect = `https://${platform}/${ccNum}${number}`;
+	window.location.assign(redirect);
 }
 
 
@@ -89,7 +90,7 @@ window.location.assign(redirect);
 
 //querySelector
 
-const INITIAL=async()=>{
+const Init=async()=>{
 
 
 const numberContainer = document.querySelector(".numberContainer");
@@ -105,12 +106,12 @@ const generateNumber= async()=>{
 
 
 
-for(let i=numberContainer.childElementCount; i>0;i--){
+for(let i=numberContainer.childElementCount; i > 0;i--){
 
-const prevSpan = numberContainer.querySelector(`span.huntNumber:last-child`);
-prevSpan.classList.add("number-out")
-await sleep(0.3);
-prevSpan.remove();
+	const prevSpan = numberContainer.querySelector(`span.huntNumber:last-child`);
+	prevSpan.classList.add("number-out")
+	await sleep(0.3);
+	prevSpan.remove();
 }
 
 
@@ -118,10 +119,10 @@ prevSpan.remove();
 let maxNumber=parseInt(genMaxNum.value)||1;
 
 for(let i=0;i<maxNumber;i++){
-const chlid = getRandomNumberElementChild();
-numberContainer.append(chlid);
-await sleep(0.25);
-chlid.classList.remove("aniA");
+	const chlid = getRandomNumberElementChild();
+	numberContainer.append(chlid);
+	await sleep(0.25);
+	chlid.classList.remove("aniA");
 }
 
 }
@@ -129,7 +130,6 @@ chlid.classList.remove("aniA");
 generateNumber();
 
 
-//console.log([numberContainer])
 
 
 
@@ -209,14 +209,13 @@ genNumBtn.addEventListener("click", generateNumber);
 
 
 
-window.addEventListener("load", ()=>{
+window.addEventListener("load",async ()=>{
 
 try{
 console.log("JavaScript is Awesome ");
-INITIAL();
+await Init();
 }catch(err){
 console.log(`javascript uncatch error: ${err} `);
 }
 
 });
-

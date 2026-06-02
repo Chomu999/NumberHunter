@@ -3,17 +3,12 @@
 <head>
 
 <meta charset="UTF-8">
-<meta charset="ISO-8859-1"/>
 
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
-
-
 <meta name="viewport" content="width=device-width, user-scalable=no ,initial-scale=1.0, maximum-scale=1.0">
-
-<meta name="author" content="bhowmickbyte"/>
+<meta name="author" content="Chomu999, "/>
 
 
 
@@ -25,7 +20,7 @@ referrerpolicy="no-referrer" />
 
 
 
-<link rel="stylesheet" href="/storage/emulated/0/g_js_libs/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/sdcard/g_js_libs/font-awesome/css/font-awesome.min.css" />
 
 
 
@@ -61,18 +56,27 @@ referrerpolicy="no-referrer" />
 
 
 
-<p>
-starting number:
-<input maxlength="0" min=6 max="9" type="number" class="firstNum" value="6">
+
+<div class="wrapper btnContainer">
+	
+
+<p class="InputLabel">
+	<label>
+		starting number: <input min=6 max="9" type="number" class="startNum" value="6">
+	</label>
+</p>
+
+<p class="InputLabel">
+	<label>
+		contry code: <input min="6" max="9" type="number" class="ccNum" value="92">
+	</label>
 </p>
 
 <p title="max number to generate random phone number" class="inputLabel">
-maximum number :
-<input type="number" pattern="a[0-1]" class="genMaxNum" value="4" />
+	<label>
+		maximum number : <input type="number" pattern="a[0-1]" class="genMaxNum" value="4" />
+	</label>
 </p>
-
-
-<div class="wrapper btnContainer">
 
 <button class="btn genNumBtn">Generate Numuber</button>
 

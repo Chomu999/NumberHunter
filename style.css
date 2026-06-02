@@ -11,8 +11,11 @@ box-sizing: border-box;
 
 :root{
 
---col1:#FF7FE8;
 --col0:#80FF8F;
+--col1:#FF7FE8;
+--col2:#f0f0f0;
+--col3:#404040;
+
 --neon-bg:transparent;
 --neon-col0:#1200ff;
 --neon-col1:var(--col0);
@@ -22,9 +25,22 @@ box-sizing: border-box;
 
 --neon-text-shadow:0 0 0.8rem var(--neon-col1);
 
---neon-shadow:
-0 0 .4rem var(--neon-col2),
-0 0 0.4rem  var(--neon-col2) inset;
+--neon-shadow: 0 0 .4rem var(--neon-col2), 0 0 0.4rem  var(--neon-col2) inset;
+
+
+--new-morphi-col0:red;
+--new-morphi-bg:#f0f0f0;
+--new-morphi-border:0.1rem solid var(--col3);
+--new-morphi-shadow:
+1px 1px 2px 2px #fff8,
+4px 4px 2px 4px #fff8 inset,
+-1px -1px 2px 2px #0008,
+
+1px 1px 2px 2px #0008,
+
+-4px -4px 2px 2px #0008 inset
+;
+
 
 }
 
@@ -34,6 +50,7 @@ background: #004CFF;
 }
 
 html{
+	color-scheme:light;
 font-size: 10px;
 }
 
@@ -46,7 +63,7 @@ list-style-type: none;
 }
 
 body{
-background: #110017;
+background: light-dark(#f0f0f0, #110017);
 
 }
 
@@ -67,8 +84,8 @@ box-shadow: var(--neon-shadow);
 .titleContainer{
 
 
-box-shadow: var(--neon-shadow);
-border: var(--neon-border);
+box-shadow: var(--new-morphi-shadow);
+border: var(--new-morphi-border);
 
 text-align: center;
 border-radius: 2rem;
@@ -82,8 +99,8 @@ padding: 0.4rem 0.4rem;
 
 color: var(--neon-col1);
 
-box-shadow: var(--neon-shadow);
-border: var(--neon-border);
+box-shadow: var(--new-morphi-shadow);
+border: var(--new-morphi-border);
 text-shadow: var(--neon-text-shadow);
 
 font-size: 3.4rem;
@@ -99,15 +116,16 @@ border-radius: 1.2rem;
 .appContainer{
 height: min(60rem, 100% - 4rem);
 background: var(--neon-bg);
-border: var(--neon-border);
-box-shadow: var(--neon-shadow);
+border: var(--new-morphi-border);
+
+box-shadow: var(--new-morphi-shadow);
 }
 
 
 .inputContainer{
 
-box-shadow: var(--neon-shadow);
-border: var(--neon-border);
+box-shadow: var(--new-morphi-shadow);
+border: var(--new-morphi-border);
 
 }
 
@@ -119,8 +137,8 @@ font-size: 1.8rem;
 
 
 color: var(--neon-col1);
-box-shadow: var(--neon-shadow);
-border: var(--neon-border);
+box-shadow: var(--new-morphi-shadow);
+border: var(--new-morphi-border);
 text-shadow: var(--neon-text-shadow);
 
 text-align: center;
@@ -138,27 +156,28 @@ background: var(--neon-bg);
 
 color: var(--neon-col1);
 
-border: var(--neon-border);
+border: var(--new-morphi-border);
 outline: none;
 }
 
 
 .numberContainer{
-height:40rem;
+height: clamp(20rem, 25rem, 40rem);
 /* aspect-ratio: 1; */
 overflow: hidden auto;
 text-align: center;
 
 
-box-shadow: var(--neon-shadow);
-border: var(--neon-border);
+box-shadow: var(--new-morphi-shadow);
+border: var(--new-morphi-border);
 
+background: var(--new-morphi-bg, red)!important;
 
 }
 
-.numberContainer .huntNumber{
-margin:0.8rem auto;
-padding: 0.4rem;
+.numberContainer > .huntNumber{
+margin:1rem auto;
+padding: 0.8rem ;
 border: 2px solid ;
 width: min(24rem, 100% - 4rem);
 display: flex;
@@ -166,8 +185,8 @@ justify-content: center;
 justify-content: space-around;
 align-items: center;
 
-box-shadow: var(--neon-shadow);
-border: var(--neon-border);
+box-shadow: var(--new-morphi-shadow);
+border: var(--new-morphi-border);
 
 border-radius: 0.6rem;
 font-size: 2rem;
@@ -190,14 +209,16 @@ font-size: 1.4rem;
 color: var(--neon-col1);
 filter: drop-shadow( var(--neon-shadow) );
 
+color:lightblue;
 /* border: var(--neon-border); */
 /* box-shadow: var(--neon-shadow); */
 } 
 
 .add_telegram_Btn{
 
-color: var(--neon-col1);
-filter: drop-shadow( var(--neon-shadow) );
+color: #00f880;
+
+filter: drop-shadow( var(--new-morphi-shadow));
 
 }
 
@@ -205,20 +226,20 @@ filter: drop-shadow( var(--neon-shadow) );
 .btnContainer{
 
 background: var(--neon-bg);
-box-shadow: var(--neon-shadow);
-border: var(--neon-border);
+box-shadow: var(--new-morphi-shadow);
+border: var(--new-morphi-border);
 text-align: center;
 }
 
-.btnContainer .btn{
+.btnContainer > .btn{
 margin: 0.4rem;
 padding: 0.6rem 1.4rem;
 
 color: var(--neon-col1);
 background: var(--neon-bg);
-box-shadow: var(--neon-shadow);
+box-shadow: var(--new-morphi-shadow);
 text-shadow: var(--neon-text-shadow);
-border: var(--neon-border);
+border: var(--new-morphi-border);
 
 border-radius: 2rem;
 font-size: 2rem;
@@ -250,7 +271,7 @@ transform:  rotate(6deg);
 
 
   .huntNumber > span{
-color: red!important;
+color: purple;
 }
 
 
